@@ -1,3 +1,13 @@
+import pandas as pd
+pd.set_option("Display.max_columns",None)
+
+df = pd.read_csv("movie.csv")
+print("Movies \t \t \tShow Timings\n")
+print(df.Movies[0],"\t \t",df.Show_Time[0])
+print(df.Movies[1],"\t \t",df.Show_Time[1])
+print(df.Movies[2],"\t",df.Show_Time[2])
+
+
 class ticket :
     def __init__(self):
         self.ticket_no = 1
@@ -54,14 +64,13 @@ class Customer(ticket,movie):
         ticket.read_tno(self)
         movie.m_det(self)
     def cust_tkt(self):
-        print("Name :" ,self.cust_name)
+        print("************************ \n \t\t TICKET \n************************")
+        print("\nName :" ,self.cust_name)
         print("Phone Number :", self.cust_no)
         movie.m_show(self)
         ticket.t_show(self)
 
 m1=movie()
-print(m1.m_pool)
-print (m1.m_timing)
 c1=Customer()
 c1.cust_det()
 c1.cust_tkt()
